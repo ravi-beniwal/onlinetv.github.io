@@ -10,7 +10,18 @@ $(document).ready(function() {
 e.preventDefault();	
 $('.list-group-item').removeClass('active');
 $(this).addClass('active');
-reset_video();
+var new_url = $(this).attr('new_url');
+ var t_logo = $(this).attr('t_logo');
+ var t_type = $(this).attr('t_type');
+play_this(t_type,t_logo,new_url);
+	});
+	
+	$(document).on('click', '.channel_card', function(e){
+e.preventDefault();	
+var new_url = $(this).attr('new_url');
+ var t_logo = $(this).attr('t_logo');
+ var t_type = $(this).attr('t_type');
+ play_this(t_type,t_logo,new_url);
 	});
 
 $('#ch_category').on('change', function() {
@@ -26,12 +37,12 @@ function get_channel_list(search_category)
    $.each(data, function(key, v){
 	   if(search_category=='')
 	   {
-		   $('#channel_cards').append('<div class="col-md-3 col-xs-6"><div class="card"><img class="card_img" src="'+v.channel_logo+'"><div class="c_container"><b>'+v.channel_title+'</b><p><label class="label label-danger">'+v.category+'</label>  <label class="label label-primary">'+v.channel_language+'</label></p></div></div></div>');
+		   $('#channel_cards').append('<div class="col-md-3 col-xs-6"><div class="card channel_card" t_logo="'+v.channel_logo+'" t_type="'+v.channel_type+'" new_url="'+v.channel_url+'"><img class="card_img" src="'+v.channel_logo+'"><div class="c_container"><b>'+v.channel_title+'</b><p><label class="label label-danger">'+v.category+'</label>  <label class="label label-primary">'+v.channel_language+'</label></p></div></div></div>');
 		    $('#channel_list').append('<li t_logo="'+v.channel_logo+'" t_type="'+v.channel_type+'" new_url="'+v.channel_url+'" class="list-group-item"><img class="small_img pull-left" src="'+v.channel_logo+'"/><span class="text-center">'+v.channel_title+'</span><span class="pull-right"><label class="label label-danger">'+v.category+'</label><label class="label label-primary">'+v.channel_language+'</label></span></li>');
 	   }
 	   else if(search_category.indexOf(v.category) > -1){
 //if (v.category===category){
-        $('#channel_cards').append('<div class="col-md-3 col-xs-6"><div class="card"><img class="card_img" src="'+v.channel_logo+'"><div class="c_container"><b>'+v.channel_title+'</b><<p><label class="label label-danger">'+v.category+'</label>  <label class="label label-primary">'+v.channel_language+'</label></p></div></div></div>');
+        $('#channel_cards').append('<div class="col-md-3 col-xs-6"><div class="card channel_card" t_logo="'+v.channel_logo+'" t_type="'+v.channel_type+'" new_url="'+v.channel_url+'"><img class="card_img" src="'+v.channel_logo+'"><div class="c_container"><b>'+v.channel_title+'</b><<p><label class="label label-danger">'+v.category+'</label>  <label class="label label-primary">'+v.channel_language+'</label></p></div></div></div>');
 		      $('#channel_list').append('<li t_logo="'+v.channel_logo+'" t_type="'+v.channel_type+'" new_url="'+v.channel_url+'" class="list-group-item"><img class="small_img pull-left" src="'+v.channel_logo+'"/><span class="text-center">'+v.channel_title+'</span><span class="pull-right"><label class="label label-danger">'+v.category+'</label><label class="label label-primary">'+v.channel_language+'</label></span></li>');
     }
 	  
