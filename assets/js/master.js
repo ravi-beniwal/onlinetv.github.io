@@ -20,16 +20,19 @@ $('#ch_category').on('change', function() {
 function get_channel_list(search_category)
 {
   $.getJSON(channel_json_file, function(data) {
+      $('#channel_cards').empty();
       $('#channel_list').empty();
-            $('#channel_list').append('<a href="#" new_url="" class="list-group-item list-group-item-action active">Select Channel</a>');      
+            $('#channel_list').append('<li href="#" new_url="" class="list-group-item active">Select Channel</li>');      
    $.each(data, function(key, v){
 	   if(search_category=='')
 	   {
-		    $('#channel_list').append('<a href="#" t_logo="'+v.channel_logo+'" t_type="'+v.channel_type+'" new_url="'+v.channel_url+'" class="list-group-item list-group-item-action"><img class="small_img pull-left" src="'+v.channel_logo+'"/>'+v.channel_title+'<span class="label label-info pull-right">'+v.channel_language+'</span></a>');
+		   $('#channel_cards').append('<div class="col-md-3 col-xs-6"><div class="card"><img class="card_img" src="'+v.channel_logo+'"><div class="c_container"><b>'+v.channel_title+'</b><p><label class="label label-danger">'+v.category+'</label>  <label class="label label-primary">'+v.channel_language+'</label></p></div></div></div>');
+		    $('#channel_list').append('<li t_logo="'+v.channel_logo+'" t_type="'+v.channel_type+'" new_url="'+v.channel_url+'" class="list-group-item"><img class="small_img pull-left" src="'+v.channel_logo+'"/><span class="text-center">'+v.channel_title+'</span><span class="pull-right"><label class="label label-danger">'+v.category+'</label><label class="label label-primary">'+v.channel_language+'</label></span></li>');
 	   }
 	   else if(search_category.indexOf(v.category) > -1){
 //if (v.category===category){
-        $('#channel_list').append('<a href="#" t_logo="'+v.channel_logo+'" t_type="'+v.channel_type+'" new_url="'+v.channel_url+'" class="list-group-item list-group-item-action"><img class="small_img pull-left" src="'+v.channel_logo+'"/>'+v.channel_title+'<span class="label label-info pull-right">'+v.channel_language+'</span></a>');
+        $('#channel_cards').append('<div class="col-md-3 col-xs-6"><div class="card"><img class="card_img" src="'+v.channel_logo+'"><div class="c_container"><b>'+v.channel_title+'</b><<p><label class="label label-danger">'+v.category+'</label>  <label class="label label-primary">'+v.channel_language+'</label></p></div></div></div>');
+		      $('#channel_list').append('<li t_logo="'+v.channel_logo+'" t_type="'+v.channel_type+'" new_url="'+v.channel_url+'" class="list-group-item"><img class="small_img pull-left" src="'+v.channel_logo+'"/><span class="text-center">'+v.channel_title+'</span><span class="pull-right"><label class="label label-danger">'+v.category+'</label><label class="label label-primary">'+v.channel_language+'</label></span></li>');
     }
 	  
    });   
@@ -37,9 +40,9 @@ function get_channel_list(search_category)
 }
   function reset_video()
 {
- var new_url = $('#channel_list').find('a.active').attr('new_url');
- var t_logo = $('#channel_list').find('a.active').attr('t_logo');
- var t_type = $('#channel_list').find('a.active').attr('t_type');
+ var new_url = $('#channel_list').find('li.active').attr('new_url');
+ var t_logo = $('#channel_list').find('li.active').attr('t_logo');
+ var t_type = $('#channel_list').find('li.active').attr('t_type');
 play_this(t_type,t_logo,new_url);
 
 }  
