@@ -222,6 +222,7 @@ function getExt(ext) {
 
 $(document).ready(function() { 
    //reset_video();
+   $('.vjs-modal-dialog-content').html('Select a Channel to play');
    var category='';
    get_channel_list(category);
 	});
@@ -255,7 +256,7 @@ function get_channel_list(search_category)
   $.getJSON(channel_json_file, function(data) {
       $('#channel_cards').empty();
       $('#channel_list').empty();
-            $('#channel_list').append('<li href="#" new_url="" class="list-group-item active">Select Channel</li>');      
+            $('#channel_list').append('<li href="#" new_url="https://www.youtube.com/watch?v=aXI_hdCddNQ" class="list-group-item active">Select Channel</li>');      
    $.each(data, function(key, v){
 	   if(search_category=='')
 	   {
