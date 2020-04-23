@@ -20,15 +20,23 @@
 
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-     <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
-  <script src="https://unpkg.com/video.js/dist/video.js"></script>
-  <script src="https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script>
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.0.0/video-js.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.0.0/video.min.js"></script>
    
 
     <title>Online TV</title>
 	 
 
     <style>
+    .list-group-item {
+    position: relative;
+    display: block;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    height: 57px;
+    padding: 4px 3px 3px 6px;
+}
     blink {
   -webkit-animation: 2s linear infinite condemned_blink_effect; /* for Safari 4.0 - 8.0 */
   animation: 2s linear infinite condemned_blink_effect;
@@ -119,8 +127,11 @@ img {
 <div class="col-md-8 col-sm-12 col-xs-12">
 <div id="main_div_player">
 	
-    <video id="playing_video" class="video-js" controls preload="auto" poster="assets/img/Featured-Image.jpg">
-</video>
+    <video id="playing_video" class="video-js " controls preload="auto" poster="assets/img/Featured-Image.jpg" data-setup='{}'>
+    <source src="" type="application/x-mpegURL"></source>
+    </video>
+    <hr>
+    <div class="error"></div>
 </div>
 </div>
 	<div class="col-md-4 col-sm-12 col-xs-12">
