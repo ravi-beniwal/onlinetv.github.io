@@ -207,7 +207,7 @@ play_this(ttype,video_stream_file);
 function init() {
   // initialize the player
   // first, get the media element and assign it to the video variable
-  video = document.getElementById('playing_video');
+  video = document.getElementsByTagName('video');
 
   // get the current playbackRate from the HTML5 media API
   // range is 0 to very fast, with 1 being normal playback
@@ -301,8 +301,7 @@ e.preventDefault();
 });
 
 $(document).on('click', '.fullscreen', function(e){
-e.preventDefault();	
-if (video.paused) {
+e.preventDefault();
     if (video.requestFullscreen) {
         video.requestFullscreen();
     }
@@ -315,11 +314,7 @@ if (video.paused) {
     else if (video.webkitRequestFullScreen) {
         video.webkitRequestFullScreen();
     }
-    video.play();
-}
-else {
-    video.pause();
-}
+    
 });
 
 
