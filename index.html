@@ -72,11 +72,11 @@
   <a href="#" link_id="" class="list-group-item list-group-item-action active">
     Select Channel
   </a>
-  <a href="#" link_id="https://feeds.intoday.in/livetv/?id=livetv-at&autostart=true" class="list-group-item list-group-item-action">Aajtak</a>
-  <a href="#" link_id="http://103.199.161.254/Content/ddnational/Live/Channel(DDNational)/index.m3u8" class="list-group-item list-group-item-action">DD National</a>
-  <a href="#" link_id="http://nicls1-lh.akamaihd.net/i/ddnews_1@409133/master.m3u8" class="list-group-item list-group-item-action">DD News</a>
-  <a href="#" link_id="http://103.199.161.254/Content/ddsports/Live/Channel(DDSPORTS)/Stream(02)/index.m3u8" class="list-group-item list-group-item-action">DD Sports</a>
-  <a href="#" link_id="http://mhms9.airtel.tv/wh7f454c46tw167550841_1932516860/PLTV/88888888/224/3221226291/index.m3u8" class="list-group-item list-group-item-action">DD Bharti</a>
+  <a href="#" t_type="iframe" link_id="https://feeds.intoday.in/livetv/?id=livetv-at&autostart=true" class="list-group-item list-group-item-action">Aajtak</a>
+  <a href="#" t_type="file" link_id="https://103.199.161.254/Content/ddnational/Live/Channel(DDNational)/index.m3u8" class="list-group-item list-group-item-action">DD National</a>
+  <a href="#" t_type="file" link_id="https://nicls1-lh.akamaihd.net/i/ddnews_1@409133/master.m3u8" class="list-group-item list-group-item-action">DD News</a>
+  <a href="#" t_type="file" link_id="https://103.199.161.254/Content/ddsports/Live/Channel(DDSPORTS)/Stream(02)/index.m3u8" class="list-group-item list-group-item-action">DD Sports</a>
+  <a href="#" t_type="file" link_id="https://mhms9.airtel.tv/wh7f454c46tw167550841_1932516860/PLTV/88888888/224/3221226291/index.m3u8" class="list-group-item list-group-item-action">DD Bharti</a>
  <!-- <a href="#" link_id="http://pockettv.xyz/api/zee.m3u8" class="list-group-item list-group-item-action">Zee News</a>
   <a href="#" link_id="http://94.75.250.49/liveorigin/9xjal...1/ratus42.m3u8"  class="list-group-item list-group-item-action">9X Jalwa</a>
   <a href="#" link_id="" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Vestibulum at eros</a>-->
@@ -164,11 +164,12 @@ reset_video();
   function reset_video()
 {
  var video_stream_file = $('#channel_list').find('a.active').attr('link_id');
-
-play_this(video_stream_file);
+var type=$('#channel_list').find('a.active').attr('t_type');
+play_this(ttype,video_stream_file);
 
 }  
-	function play_this(video_stream_file){
+	function play_this(ttype,video_stream_file){
+    if(ttype=='file'){
     $('#main_div_player').html('<video id="playing_video" autoplay playsinline style="width:100%;"></video>');
 	if(Hls.isSupported())
     {
@@ -193,11 +194,12 @@ play_this(video_stream_file);
              $('.play_pause').attr('id','pause').html('<i class="fa fa-pause fa-fw"></i>Pause');
         });
     }
-    else{
-    $('#main_div_player').html('<iframe title="Live TV" id="livetv_AT_web" allow="autoplay;fullscreen;" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" scrolling="no" mce_src="'+video_stream_file+'" src="'+video_stream_file+'"> </iframe>');
     }
+    if(ttype=='iframe'){
+    $('#main_div_player').html('<iframe title="Live TV" id="livetv_AT_web" allow="autoplay;fullscreen;" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" scrolling="no" mce_src="'+video_stream_file+'" src="'+video_stream_file+'"> </iframe>');
     
 	}
+    }
 	
 	
 	var video, speed, volume;
