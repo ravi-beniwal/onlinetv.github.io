@@ -18,7 +18,7 @@
 		"channel_language": "Hindi",
 		"category": "News",
 		"channel_type": "frame",
-		"channel_logo": "assets/img/delhiaajtaklogo.png",
+		"channel_logo": "assets/img/delhiaajtaklogo.jpg",
 		"channel_url": "https://feeds.intoday.in/livetv/?id=livetv-dat&autostart=1&utm_medium=web&utm_source=live_tv_page&v=1.3"
 	},{
 		"channel_title": "Tej",
@@ -40,7 +40,7 @@
 		"channel_language": "Hindi",
 		"category": "News",
 		"channel_type": "application/x-mpegURL",
-		"channel_logo": "assets/img/abp_news.webp",
+		"channel_logo": "assets/img/abp_news.jpg",
 		"channel_url": "https://abp-i.akamaihd.net/hls/live/765529/abphindi/masterhls_1564.m3u8"
 	},
 	{
@@ -48,7 +48,7 @@
 		"channel_language": "Hindi",
 		"category": "News",
 		"channel_type": "application/x-mpegURL",
-		"channel_logo": "assets/img/india_news.jpg",
+		"channel_logo": "assets/img/india_news.png",
 		"channel_url": "https://d8rgs2gjqo2ht.cloudfront.net/abr/ngrp:indianews_all/master.m3u8"
 	},
 	{
@@ -104,7 +104,7 @@
 		"channel_language": "Hindi",
 		"category": "Kids",
 		"channel_type": "application/x-mpegURL",
-		"channel_logo": "assets/img/pogo_tv_1.jpg",
+		"channel_logo": "assets/img/pogo_tv_1.png",
 		"channel_url": "http://z5ams.akamaized.net/pogo/tracks-v1a1/index.m3u8"
 	},
 	{
@@ -120,7 +120,7 @@
 		"channel_language": "English",
 		"category": "Movies",
 		"channel_type": "application/x-mpegURL",
-		"channel_logo": "assets/img/star_movies_hd_1.jpg",
+		"channel_logo": "assets/img/star_movies_hd_1.png",
 		"channel_url": "http://livecdnh1.tvanywhere.ae:80/hls/star_movies/04.m3u8"
 	}
 ]
