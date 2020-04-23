@@ -84,7 +84,7 @@
 </div>
 <div class="col-md-6">
 <div id="main_div_player" data-type="NA">
-	<video id="playing_video" autoplay playsinline style="width:100%;"></video><!--pointer-events: none;-->
+	<video id="playing_video" autoplay style="width:100%;"></video><!--pointer-events: none;-->
 </div>
 
     <div id="Controls">   
@@ -170,7 +170,7 @@ play_this(ttype,video_stream_file);
 }  
 	function play_this(ttype,video_stream_file){
     if(ttype=='file'){
-    $('#main_div_player').html('<video id="playing_video" autoplay playsinline style="width:100%;"></video>');
+    $('#main_div_player').html('<video id="playing_video" autoplay style="width:100%;"></video>');
 	if(Hls.isSupported())
     {
         var video = document.getElementById('playing_video');
@@ -207,7 +207,7 @@ play_this(ttype,video_stream_file);
 function init() {
   // initialize the player
   // first, get the media element and assign it to the video variable
-  video = document.getElementsByTagName('video');
+  video = document.getElementsByID('playing_video');
 
   // get the current playbackRate from the HTML5 media API
   // range is 0 to very fast, with 1 being normal playback
