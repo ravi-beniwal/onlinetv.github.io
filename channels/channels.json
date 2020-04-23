@@ -1,44 +1,126 @@
 [
 	{
-		"title": "AajTak",
-		"language": "Hindi",
+		"channel_title": "AajTak",
+		"channel_language": "Hindi",
 		"category": "News",
-		"logo": "data:image/png;base64,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",
-		"link": "http://lmil.live-s.cdn.bitgravity.com/cdn-live/_definst_/lmil/live/aajtak_app.smil/chunklist_w668703369_b150000.m3u8"
+		"channel_type": "application/x-mpegURL",
+		"channel_logo": "assets/img/aajtak_1.jpg",
+		"channel_url": "http://lmil.live-s.cdn.bitgravity.com/cdn-live/_definst_/lmil/live/aajtak_app.smil/chunklist_w668703369_b150000.m3u8"
+	},{
+		"channel_title": "AajTak(1)",
+		"channel_language": "Hindi",
+		"category": "News",
+		"channel_type": "frame",
+		"channel_logo": "assets/img/aajtak_1.jpg",
+		"channel_url": "https://content.vidgyor.com/live/midroll/html/aajtak.html"
+	},{
+		"channel_title": "Delhi AajTak",
+		"channel_language": "Hindi",
+		"category": "News",
+		"channel_type": "frame",
+		"channel_logo": "assets/img/delhiaajtaklogo.png",
+		"channel_url": "https://feeds.intoday.in/livetv/?id=livetv-dat&autostart=1&utm_medium=web&utm_source=live_tv_page&v=1.3"
+	},{
+		"channel_title": "Tej",
+		"channel_language": "Hindi",
+		"category": "News",
+		"channel_type": "frame",
+		"channel_logo": "assets/img/tezlogo.png",
+		"channel_url": "https://feeds.intoday.in/livetv/?id=livetv-tez&autostart=1&utm_medium=web&utm_source=live_tv_page&v=1.3"
+	},{
+		"channel_title": "India Today",
+		"channel_language": "English",
+		"category": "News",
+		"channel_type": "frame",
+		"channel_logo": "assets/img/india_today_1.jpg",
+		"channel_url": "https://feeds.intoday.in/livetv/?id=livetv-it&autostart=1&utm_medium=web&utm_source=live_tv_page&v=1.5"
 	},
 	{
-		"title": "ABP News",
-		"language": "Hindi",
+		"channel_title": "ABP News",
+		"channel_language": "Hindi",
 		"category": "News",
-		"logo": "https://static.abplive.in/wp-content/themes/abp-hindi/images/logo/hindiLogoD.png",
-		"link": "https://abp-i.akamaihd.net/hls/live/765529/abphindi/masterhls_1564.m3u8"
+		"channel_type": "application/x-mpegURL",
+		"channel_logo": "assets/img/abp_news.webp",
+		"channel_url": "https://abp-i.akamaihd.net/hls/live/765529/abphindi/masterhls_1564.m3u8"
 	},
 	{
-		"title": "DD National",
-		"language": "Hindi",
+		"channel_title": "India News",
+		"channel_language": "Hindi",
+		"category": "News",
+		"channel_type": "application/x-mpegURL",
+		"channel_logo": "assets/img/india_news.jpg",
+		"channel_url": "https://d8rgs2gjqo2ht.cloudfront.net/abr/ngrp:indianews_all/master.m3u8"
+	},
+	{
+		"channel_title": "India News Haryana",
+		"channel_language": "Hindi",
+		"category": "News",
+		"channel_type": "application/x-mpegURL",
+		"channel_logo": "assets/img/news18-punjab-haryana-himachal.gif",
+		"channel_url": "https://d8rgs2gjqo2ht.cloudfront.net/abr/ngrp:newsharyana_all/master.m3u8"
+	},
+	{
+		"channel_title": "DD National",
+		"channel_language": "Hindi",
 		"category": "Entertainment",
-		"logo": "http://mhdtvworld.com/wp-content/uploads/2018/12/dd_national.png",
-		"link": "http://103.199.161.254/Content/ddnational/Live/Channel(DDNational)/index.m3u8"
+		"channel_type": "application/x-mpegURL",
+		"channel_logo": "https://upload.wikimedia.org/wikipedia/en/thumb/8/8e/Dd_national.jpg/240px-Dd_national.jpg",
+		"channel_url": "http://103.199.161.254/Content/ddnational/Live/Channel(DDNational)/index.m3u8"
 	},
 	{
-		"title": "DD News",
-		"language": "Hindi",
+		"channel_title": "DD News",
+		"channel_language": "Hindi",
 		"category": "News",
-		"logo": "http://smumcdnems05.cdnsrv.jio.com/mumsite.cdnsrv.jio.com/jiotv.catchup.cdn.jio.com/dare_images/images/DD_News.png",
-		"link": "http://nicls1-lh.akamaihd.net/i/ddnews_1@409133/master.m3u8"
+		"channel_type": "application/x-mpegURL",
+		"channel_logo": "http://ddnews.gov.in/sites/all/themes/cmf/logo.png",
+		"channel_url": "http://nicls1-lh.akamaihd.net/i/ddnews_1@409133/master.m3u8"
 	},
 	{
-		"title": "DD Sports",
-		"language": "Hindi",
+		"channel_title": "DD News HD",
+		"channel_language": "Hindi",
+		"category": "News",
+		"channel_type": "youtube",
+		"channel_logo": "http://ddnews.gov.in/sites/all/themes/cmf/logo.png",
+		"channel_url": "f00h7ifTs3U"
+	},
+	{
+		"channel_title": "DD Sports",
+		"channel_language": "Hindi",
 		"category": "Sports",
-		"logo": "http://www.livenewsmag.com/wp-content/uploads/2017/03/DD-Sports-TV.jpg",
-		"link": "http://103.199.161.254/Content/ddsports/Live/Channel(DDSPORTS)/Stream(02)/index.m3u8"
+		"channel_type": "application/x-mpegURL",
+		"channel_logo": "http://www.livenewsmag.com/wp-content/uploads/2017/03/DD-Sports-TV.jpg",
+		"channel_url": "http://103.199.161.254/Content/ddsports/Live/Channel(DDSPORTS)/Stream(02)/index.m3u8"
 	},
 	{
-		"title": "DD India",
-		"language": "Hindi",
+		"channel_title": "DD India",
+		"channel_language": "Hindi",
 		"category": "Entertainment",
-		"logo": "",
-		"link": "http://mhms9.airtel.tv/wh7f454c46tw3723233184_323017196/PLTV/88888888/224/3221226293/index.m3u8"
+		"channel_type": "application/x-mpegURL",
+		"channel_logo": "assets/img/dd_india.jpg",
+		"channel_url": "http://mhms9.airtel.tv/wh7f454c46tw3723233184_323017196/PLTV/88888888/224/3221226293/index.m3u8"
+	},
+	{
+		"channel_title": "Pogo",
+		"channel_language": "Hindi",
+		"category": "Kids",
+		"channel_type": "application/x-mpegURL",
+		"channel_logo": "assets/img/pogo_tv_1.jpg",
+		"channel_url": "http://z5ams.akamaized.net/pogo/tracks-v1a1/index.m3u8"
+	},
+	{
+		"channel_title": "HBO",
+		"channel_language": "English",
+		"category": "Movies",
+		"channel_type": "application/x-mpegURL",
+		"channel_logo": "assets/img/hbo.png",
+		"channel_url": "http://203.207.56.228/live/iptv005.m3u8"
+	},
+	{
+		"channel_title": "STAR MOVIES HD",
+		"channel_language": "English",
+		"category": "Movies",
+		"channel_type": "application/x-mpegURL",
+		"channel_logo": "assets/img/star_movies_hd_1.jpg",
+		"channel_url": "http://livecdnh1.tvanywhere.ae:80/hls/star_movies/04.m3u8"
 	}
 ]
