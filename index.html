@@ -2,35 +2,39 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Live TV</title>
-	   <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="android-chrome" sizes="192x192" href="assets/favicon/android-chrome-192x192.png">
-    <link rel="android-chrome" sizes="512x512" href="assets/favicon/android-chrome-512x512.png">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-<link rel="manifest" href="assets/favicon/site.webmanifest">
-<meta name="theme-color" content="#ffffff">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="https://cdn.plyr.io/1.8.2/plyr.css">
-	<link rel="stylesheet" href="./style.css?1">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+    <title>LiveTV</title>
+<link rel="manifest" href="manifest/manifest.webmanifest">
+<meta name="theme-color" content="#3d3a6f">
 	
+	  <link rel="stylesheet" href="./bootstrap-5.1.0-dist/css/bootstrap.min.css">
+ 
+    <link rel="stylesheet" href="./202108/1.8.2_plyr.css">
+	<link rel="stylesheet" href="./202108/style.css?1">
   </head>
   <body>
-  <div class="container">
-  <div class="channels_container">
-  Loading Channel List....
+  <div class="row">
+  
+  <div class="container-fluid">
+  <div class="col-md-3 channels_container">
+    Loading Channel List....
   </div>
-  <div class="video_container">
+  <div class="col-md-8 video_container">
     <video controls crossorigin playsinline 
-	data-poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg" 
+	data-poster="202108/1884952003.png" 
 	preload="none" id="player" autoplay  muted></video>
 	<div class="channel_information"></div>
 	</div>
 	</div>
-    <script src="https://cdn.plyr.io/1.8.2/plyr.js"></script>
-    <script src="https://cdn.jsdelivr.net/hls.js/latest/hls.js"></script>
-    <script src="./index.js"></script>
+	</div>
+	 <script src="202108/3.6.0_jquery.min.js"></script>
+  <script src="./bootstrap-5.1.0-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.plyr.io/3.6.8/plyr.js"  crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/hls.js/latest/hls.js"  crossorigin="anonymous"></script>
+	<script>
+ 
+</script>
+    <script src="./202108/index.js"></script>
   </body>
 </html>
