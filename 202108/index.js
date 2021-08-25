@@ -115,8 +115,17 @@ function LoadTVChannels(name)
 	channels_list=JSON.parse(LS('get','LiveTV',''));
 	const channels=channels_list['channels'];
 	$('.channels_container').html('<div id="channels" class="channel_list"></div>');
+	var uniquelang = [],uniquecat=[];
+	
 	$.each(channels,function(a,ch){
-		
+	if (uniquelang.indexOf(ch['languages'][0]['name']) === -1) {
+     
+        uniquelang.push(ch['languages'][0]['name']);
+    }
+	if (uniquecat.indexOf(ch['category']) === -1) {
+     
+        uniquecat.push(ch['category']);
+    }
 		//console.log(ch);	
 		//https://qqcdnpictest.mxplay.com/pic/0380.NewsX.in/en/1x1/208x208/test_pic1552315785886.jpg
 		var ch_img_url='https://qqcdnpictest.mxplay.com/';
@@ -124,30 +133,83 @@ function LoadTVChannels(name)
 		c['title']=ch['title'];
 		c['id']=ch['id'];
 		c['category']=ch['category'];
-		c['languages']=ch['languages'];
+		c['languages']=ch['languages'][0]['name'];
 		stream_provider=ch['stream']['provider'];
 		c['link']=ch['stream'][ch['stream']['provider']]['hls']['main'] ?? ch['stream'][ch['stream']['provider']]['hls']['high'] ?? ch['stream'][ch['stream']['provider']]['hls']['base'];
 	//	console.log(c);
-		$('#channels').append('<div class="channel" id="'+c['id']+'"  onClick="play_Video(\''+c['link']+'\');LoadInformation(\''+c['id']+'\',\''+c['title']+'\',\''+c['category']+'\',\''+c['languages']+'\');"><img class="channel_image" src="'+c['image']+'" alt="'+c['title']+'"></div>');
+		$('#channels').append('<div class="channel" id="'+c['id']+'" data-lang="'+c['languages']+'" data-cat="'+c['category']+'" onClick="play_Video(\''+c['link']+'\');LoadInformation(\''+c['id']+'\',\''+c['title']+'\',\''+c['category']+'\',\''+c['languages']+'\');"><img class="channel_image" src="'+c['image']+'" alt="'+c['title']+'"></div>');
 	});
+	populate_cat_selection(uniquecat);
+	populate_lang_selection(uniquelang);
 	
 }
 
 function LoadInformation(id,title,category,languages)
 {
-
-	var language = JSON.parse('[' + JSON.stringify(languages) + ']').map(function(values) {
-  return values.name;
-}).join(',');
-	
-	$('.channel_information').html('<h3>'+title+' <small><button class="btn btn-success">'+category+'</button><button class="btn btn-primary">'+language+'</button></small></h3>');
+	$('.channel_information').html('<h3>'+title+' <small><button class="btn btn-success">'+category+'</button><button class="btn btn-primary">'+languages+'</button></small></h3>');
 }
 
 
+function populate_cat_selection(arr)
+{
+
+$('select#category_selection').html('<option value="">Select Category</option>');
+$.each(arr,function(id,lang)
+{
+	$('select#category_selection').append('<option value="'+lang+'">'+lang+'</option>');
+});
+
+}
+
+
+function populate_lang_selection(arr)
+{
+
+$('select#language_selection').html('<option value="">Select Language</option>');
+$.each(arr,function(id,lang)
+{
+	$('select#language_selection').append('<option value="'+lang+'">'+lang+'</option>');
+});
+
+}
+
+$(document).on('change', 'select#language_selection', function (e) {
+var lang = $('#language_selection').find(":selected").val() || $('#language_selection').find(":first").val();
+	 var cat = $('#category_selection').find(":selected").val() || $('#category_selection').find(":first").val();   
+   select_channels(lang,cat);
+
+});
+$(document).on('change', 'select#category_selection', function (e) {
+	var lang = $('#language_selection').find(":selected").val() || $('#language_selection').find(":first").val();
+	 var cat = $('#category_selection').find(":selected").val() || $('#category_selection').find(":first").val();
+    select_channels(lang,cat);
+});
 
 
 
+function select_channels(lang,cat)
+{
+	console.log(lang,cat);
+	if(lang){
+		
+		 $('.channel').filter(function () {
+    return $(this).attr('data-lang') === lang;
+  }).show();
+		 $('.channel').filter(function () {
+    return $(this).attr('data-lang') != lang;
+  }).hide();
+	}
+	
+	if(cat){
+		 $('.channel').filter(function () {
+    return $(this).attr('data-cat') === cat;
+  }).show();
+   $('.channel').filter(function () {
+    return $(this).attr('data-cat') != cat;
+  }).hide();
+	}
 
+}
 
 
 
