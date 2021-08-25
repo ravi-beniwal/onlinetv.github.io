@@ -3,6 +3,10 @@ body {
   background:skyblue;
 }
 
+select.form-control{
+	background: green;
+    color: white;
+}
 .btn{
 	color: white;
    
@@ -17,22 +21,27 @@ body {
     overflow: hidden;
 }
 .channels_container{
-	width:30%;
+
 	border:1px solid grey;
 	background:#fff;
 	border-radius:5px;
 }
 .video_container{
-	width:70%;
-	border-radius:5px;
+	position: relative;
+    width: -webkit-fill-available;
+    border-radius: 5px;
+    max-width: 75%;
+    margin: 10px;
 }
 .channel_list{
 	max-height: 550px;
     margin: 2px;
     padding: 5px;
 	overflow:auto;
+	text-align:center;
+	
 }
-.channel_list .channel
+ .channel
 {
 	list-style: none;
     display: inline-flex;
@@ -41,17 +50,27 @@ body {
     width: 100px;
     height: 100px;
     margin: 5px;
-    justify-content: center;
+
 }
 
 .channel_image{
-	    width: 98px;
-    height: 98px;
-    border-radius: 10px;
+	    width: 95px;
+    height: 95px;
+    border-radius: 8px;
 }
 
 video{
-	width:100%;
+	    position: relative; 
+    right: 0; 
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto; 
+    height: auto; 
+    z-index: -100;
+    background-size: cover;
+    overflow: hidden;
+
 }
 
 

@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>LiveTV</title>
-<link rel="manifest" href="manifest/manifest.webmanifest">
+<link rel="manifest" href="manifest/manifest.json">
 <meta name="theme-color" content="#3d3a6f">
 	
 	  <link rel="stylesheet" href="./bootstrap-5.1.0-dist/css/bootstrap.min.css">
@@ -15,11 +15,21 @@
   </head>
   <body>
   <div class="row">
-  
-  <div class="container-fluid">
-  <div class="col-md-3 channels_container">
-    Loading Channel List....
+    <div class="container-fluid">
+  <div class="col-md-4 pull-right" style="display: inline-flex;">
+ 
   </div>
+  </div>
+  </div>
+  <div class="container-fluid">
+  <div class="col-md-3">
+  <div style="display: inline-flex;">
+   <select class="form-control" id="language_selection"></select>
+<select class="form-control" id="category_selection"></select>
+</div>
+  <div class="channels_container">
+    Loading Channel List....
+  </div></div>
   <div class="col-md-8 video_container">
     <video controls crossorigin playsinline 
 	data-poster="202108/1884952003.png" 
