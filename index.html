@@ -1,176 +1,78 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-<!--<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-	<meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval';">
--->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="android-chrome" sizes="192x192" href="assets/favicon/android-chrome-192x192.png">
-    <link rel="android-chrome" sizes="512x512" href="assets/favicon/android-chrome-512x512.png">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-<link rel="manifest" href="assets/favicon/site.webmanifest">
-<meta name="theme-color" content="#ffffff">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-     <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.0.0/video-js.css" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.0.0/video.min.js"></script>
-   
-
-    <title>Online TV</title>
-	 
-
-    <style>
-    .list-group-item {
-    position: relative;
-    display: block;
-    margin-bottom: -1px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    height: 57px;
-    padding: 4px 3px 3px 6px;
-}
-    blink {
-  -webkit-animation: 2s linear infinite condemned_blink_effect; /* for Safari 4.0 - 8.0 */
-  animation: 2s linear infinite condemned_blink_effect;
-}
-
-/* for Safari 4.0 - 8.0 */
-@-webkit-keyframes condemned_blink_effect { 
-  0% {
-    visibility: hidden;
-  }
-  50% {
-    visibility: hidden;
-  }
-  100% {
-    visibility: visible;
-  }
-}
-
-@keyframes condemned_blink_effect {
-  0% {
-    visibility: hidden;
-  }
-  50% {
-    visibility: hidden;
-  }
-  100% {
-    visibility: visible;
-  }
-}
-
-    .small_img{
-    height:25px;
-    }
-      #playing_video,iframe{
-      height: 300px;
-    width: 100%;
-    }
-li,.card { cursor: pointer; }
-
-*{
-scrollbar-width: none;
-}
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  width: 100%;
-  border-radius: 5px;
-  text-align:center;
-  display: inline-block;
-  margin:6px;
-  border:1px solid #ddd;
-  height:120px;
-  padding:10px;
-}
-
-.card:hover {
-  box-shadow: 0 30px 30px 0 rgba(0,0,0,0.2);
-}
-
-.card_img {
-  border-radius: 5px 5px 0 0;
-  width: 45px;
-    height: 50px;
-}
-.c_container {
-  padding: 2px 5px;
-}
-img {
-  <!--image-rendering: auto;
-  image-rendering: crisp-edges;-->
-  image-rendering: pixelated;
-}
-    </style>
-  </head>
-   <body>
-    <header>
-  <div class="navbar shadow-sm" style="background:#4BB">
-    <div class="container d-flex justify-content-between">
-      <a href="#" class="navbar-brand d-flex align-items-center" style="color:#fff;">
-       <blink> <i class="fa fa-television fa-fw" ></i><strong>Online TV</strong></blink>
-      </a>
-    </div>
-  </div>
-</header>
-
-    <div class="container" style="margin:1px 1px 1px 1px;">
-    <div class="row">
-<div class="col-md-8 col-sm-12 col-xs-12">
-<div id="main_div_player">
-	
-    <video id="playing_video" class="video-js " controls preload="auto" poster="assets/img/Featured-Image.jpg" data-setup='{}'>
-    <source src="" type="application/x-mpegURL"></source>
-    </video>
-    <hr>
-    <div class="error"></div>
-</div>
-</div>
-	<div class="col-md-4 col-sm-12 col-xs-12">
-    <div class="form-group">
-    <select class="browser-default form-control" id="ch_category">
-  <option selected value="">Select Channel Category</option>
-  <option value="News">News</option>
-  <option value="Kids">Kids</option>
-  <option value="Entertainment">Entertainment</option>
-  <option value="Movies">Movies</option>
-  <option value="Sports">Sports</option>
-  <option value="Documentary">Documentary</option>
-</select>
-</div>
-    <div id="channel_list" class="list-group" style="max-height: 400px;overflow: scroll;">
-  
-</div>
-</div>
-<div class="col-md-12" id="channel_cards"><div>
-
-
-</div>
-</div>
-
-</div>
-
-<script src="assets/js/master.js"></script>
-    <script>
-	
-    </script>
-	   <div id="sfczrnq72djwmhqtczf8sjanz6e4t5r5d7y"></div><script type="text/javascript" src="https://counter3.stat.ovh/private/counter.js?c=zrnq72djwmhqtczf8sjanz6e4t5r5d7y&down=async" async></script><noscript><a href="https://www.freecounterstat.com" title="hit counter"><img src="https://counter3.stat.ovh/private/freecounterstat.php?c=zrnq72djwmhqtczf8sjanz6e4t5r5d7y" border="0" title="hit counter" alt="hit counter"></a></noscript>
-  </body>
-</html>
-
+<!DOCTYPE html>
 <html>
-  <body>
-    
+  <head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>LiveTV</title>
+<link rel="manifest" href="manifest/manifest.json">
+<meta name="theme-color" content="#3d3a6f">
+	
+	  <link rel="stylesheet" href="bootstrap-5.1.0-dist/css/bootstrap.min.css">
+ 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+ 	  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+ 	  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Architects+Daughter|Roboto&amp;subset=latin,devanagari">
+ 	 
+    <link rel="stylesheet" href="202108/1.8.2_plyr.css">
+	<link rel="stylesheet" href="202108/style.css?1">
+  </head>
+  <body class="welcome">
+  <span id="splash-overlay" class="splash"></span>
+  <span id="welcome" class="z-depth-4"></span>
+  <header class="navbar-fixed"> 
+    <nav class="row deep-purple darken-3">
+      <div class="col s12">
+        <ul class="right">
+          <li class="right">
+               <select class="form-control" id="language_selection"></select>
+          </li>
+          <li class="right">
+		  <select class="form-control" id="category_selection"></select>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+
+  <div class="fixed-action-btn hidden" style="display:none;">
+    <a href="#message" class="modal-trigger btn btn-large btn-floating amber waves-effect waves-light">
+      <i class="large material-icons">message</i>
+    </a>
+  </div>
+
+  <div id="message" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Contact</h4>
+      <p>coming soon...</p>
+    </div>
+    <div class="modal-footer">
+      <a href="" class="modal-action modal-close waves-effect btn-flat">close</a>
+    </div> 
+  </div> 
+
+  <hr style="margin:10px 1px;">
+  <div class="container-fluid">
+  <div class="channels_container" style="display:none">
+     Loading Channel List....
+  </div>
+  <div class="video_container" >
+    <video controls crossorigin playsinline 
+	data-poster="202108/1884952003.png" 
+	preload="none" id="player" autoplay="true" ></video>
+	<div class="channel_information"></div>
+	</div>
+	</div>
+	
+	
+	 <script src="202108/3.6.0_jquery.min.js"></script>
+
+  <script src="bootstrap-5.1.0-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.plyr.io/3.6.8/plyr.js"  crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/hls.js/latest/hls.js"  crossorigin="anonymous"></script>
+	<script>
+ 
+</script>
+    <script src="./202108/index.js?1"></script>
   </body>
 </html>
