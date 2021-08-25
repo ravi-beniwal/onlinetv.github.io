@@ -1,3 +1,6 @@
+
+
+
 // Set a same-site cookie for first-party contexts
 document.cookie = 'id=LiveTV; SameSite=Lax';
 // Set a cross-site cookie for third-party contexts
@@ -17,7 +20,7 @@ const controls = [
             'settings', // Settings menu
             'pip', // Picture-in-picture (currently Safari only)
             'airplay', // Airplay (currently Safari only)
-            'download', // Show a download button with a link to either the current source or a custom URL you specify in your options
+            //'download', // Show a download button with a link to either the current source or a custom URL you specify in your options
             'fullscreen' // Toggle fullscreen
         ];
 		  var video = document.querySelector('#player');
@@ -56,7 +59,7 @@ const LS=function (type,name,value){
 	return return_value;
 }
 
-const play_Video=function (videoSource) {
+function play_Video(videoSource) {
  
 
   if (Hls.isSupported()) {
@@ -71,7 +74,7 @@ const play_Video=function (videoSource) {
    // plyr.setup({ controls });
   //plyr.setup(video);
  
-  
+
 setTimeout(function(){ 
 player.fullscreen.enter(); // Enter fullscreen
  }, 3000);
@@ -137,11 +140,11 @@ function LoadTVChannels(name)
 		stream_provider=ch['stream']['provider'];
 		c['link']=ch['stream'][ch['stream']['provider']]['hls']['main'] ?? ch['stream'][ch['stream']['provider']]['hls']['high'] ?? ch['stream'][ch['stream']['provider']]['hls']['base'];
 	//	console.log(c);
-		$('#channels').append('<div class="channel" id="'+c['id']+'" data-lang="'+c['languages']+'" data-cat="'+c['category']+'" onClick="play_Video(\''+c['link']+'\');LoadInformation(\''+c['id']+'\',\''+c['title']+'\',\''+c['category']+'\',\''+c['languages']+'\');"><img class="channel_image" src="'+c['image']+'" alt="'+c['title']+'"></div>');
+		$('#channels').append('<a class="channel" id="'+c['id']+'" data-lang="'+c['languages']+'" data-cat="'+c['category']+'" onClick="play_Video(\''+c['link']+'\');LoadInformation(\''+c['id']+'\',\''+c['title']+'\',\''+c['category']+'\',\''+c['languages']+'\');"><img class="channel_image" src="'+c['image']+'" alt="'+c['title']+'"></a>');
 	});
 	populate_cat_selection(uniquecat);
 	populate_lang_selection(uniquelang);
-	
+	$('.channels_container').show();
 }
 
 function LoadInformation(id,title,category,languages)
@@ -174,14 +177,14 @@ $.each(arr,function(id,lang)
 }
 
 $(document).on('change', 'select#language_selection', function (e) {
-var lang = $('#language_selection').find(":selected").val() || $('#language_selection').find(":first").val();
-	 var cat = $('#category_selection').find(":selected").val() || $('#category_selection').find(":first").val();   
+var lang = $('#language_selection').find(":selected").val() ;
+	 var cat = $('#category_selection').find(":selected").val() ;  
    select_channels(lang,cat);
 
 });
 $(document).on('change', 'select#category_selection', function (e) {
-	var lang = $('#language_selection').find(":selected").val() || $('#language_selection').find(":first").val();
-	 var cat = $('#category_selection').find(":selected").val() || $('#category_selection').find(":first").val();
+var lang = $('#language_selection').find(":selected").val() ;
+	 var cat = $('#category_selection').find(":selected").val() ;
     select_channels(lang,cat);
 });
 
@@ -189,26 +192,43 @@ $(document).on('change', 'select#category_selection', function (e) {
 
 function select_channels(lang,cat)
 {
+	$('.channel').filter(function () {
+    return $(this).attr('data-lang') != 'X' && $(this).attr('data-cat') != 'X';
+  }).show();
 	console.log(lang,cat);
-	if(lang){
 		
-		 $('.channel').filter(function () {
-    return $(this).attr('data-lang') === lang;
-  }).show();
-		 $('.channel').filter(function () {
-    return $(this).attr('data-lang') != lang;
+	if(lang){
+		if(cat)
+		{
+			$('.channel').filter(function () {
+    return $(this).attr('data-lang') != lang || $(this).attr('data-cat') != cat;
   }).hide();
+		}
+		else{
+			$('.channel').filter(function () {
+    return $(this).attr('data-lang') != lang ;
+  }).hide();
+		}
 	}
+else if(cat){
+		if(lang)
+		{
+			$('.channel').filter(function () {
+    return $(this).attr('data-lang') != lang || $(this).attr('data-cat') != cat;
+  }).hide();
+		}
+		else{
+			$('.channel').filter(function () {
+    return $(this).attr('data-cat') != cat ;
+  }).hide();
+		}
+}
+else{
+	$('.channel').filter(function () {
+    return $(this).attr('data-lang') != 'X' && $(this).attr('data-cat') != 'X';
+  }).show();
+}		
 	
-	if(cat){
-		 $('.channel').filter(function () {
-    return $(this).attr('data-cat') === cat;
-  }).show();
-   $('.channel').filter(function () {
-    return $(this).attr('data-cat') != cat;
-  }).hide();
-	}
-
 }
 
 

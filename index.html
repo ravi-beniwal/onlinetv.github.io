@@ -8,43 +8,69 @@
 <link rel="manifest" href="manifest/manifest.json">
 <meta name="theme-color" content="#3d3a6f">
 	
-	  <link rel="stylesheet" href="./bootstrap-5.1.0-dist/css/bootstrap.min.css">
- 
-    <link rel="stylesheet" href="./202108/1.8.2_plyr.css">
-	<link rel="stylesheet" href="./202108/style.css?2">
+	  <link rel="stylesheet" href="bootstrap-5.1.0-dist/css/bootstrap.min.css">
+ 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+ 	  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+ 	  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Architects+Daughter|Roboto&amp;subset=latin,devanagari">
+ 	 
+    <link rel="stylesheet" href="202108/1.8.2_plyr.css">
+	<link rel="stylesheet" href="202108/style.css?1">
   </head>
-  <body>
-  <div class="row">
-    <div class="container-fluid">
-  <div class="col-md-4 pull-right" style="display: inline-flex;">
- 
+  <body class="welcome">
+  <span id="splash-overlay" class="splash"></span>
+  <span id="welcome" class="z-depth-4"></span>
+  <header class="navbar-fixed"> 
+    <nav class="row deep-purple darken-3">
+      <div class="col s12">
+        <ul class="right">
+          <li class="right">
+               <select class="form-control" id="language_selection"></select>
+          </li>
+          <li class="right">
+		  <select class="form-control" id="category_selection"></select>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+
+  <div class="fixed-action-btn hidden" style="display:none;">
+    <a href="#message" class="modal-trigger btn btn-large btn-floating amber waves-effect waves-light">
+      <i class="large material-icons">message</i>
+    </a>
   </div>
-  </div>
-  </div>
+
+  <div id="message" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Contact</h4>
+      <p>coming soon...</p>
+    </div>
+    <div class="modal-footer">
+      <a href="" class="modal-action modal-close waves-effect btn-flat">close</a>
+    </div> 
+  </div> 
+
+  <hr style="margin:10px 1px;">
   <div class="container-fluid">
-  <div class="col-md-3">
-  <div style="display: inline-flex;">
-   <select class="form-control" id="language_selection"></select>
-<select class="form-control" id="category_selection"></select>
-</div>
-  <div class="channels_container">
-    Loading Channel List....
-  </div></div>
-  <div class="col-md-8 video_container">
-    <video controls crossorigin playsinline 
-	data-poster="202108/1884952003.png" 
-	preload="none" id="player" autoplay ></video>
+  <div class="channels_container" style="display:none">
+     Loading Channel List....
+  </div>
+  <div class="video_container" >
+    <video controls crossorigin playsinline	data-poster="202108/1884952003.png" preload="none" id="player" autoplay="true" ></video>
 	<div class="channel_information"></div>
 	</div>
 	</div>
-	</div>
+	
+	
 	 <script src="202108/3.6.0_jquery.min.js"></script>
-  <script src="./bootstrap-5.1.0-dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="bootstrap-5.1.0-dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.plyr.io/3.6.8/plyr.js"  crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/hls.js/latest/hls.js"  crossorigin="anonymous"></script>
 	<script>
  
 </script>
-    <script src="./202108/index.js?2"></script>
+    <script src="./202108/index.js?20210821"></script>
   </body>
 </html>
